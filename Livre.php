@@ -46,13 +46,12 @@
             $this->prix = $prix;
         }
 
+        public function __toString(){
+            return "test";
+        }
+
         public function infoLivre() {
             echo "{$this->livres} ({$this->annee}) : {$this->nombreDePage} pages / {$this->prix}€ <br>";
         }
     }
-
-    $ca = new Livre("Ca", 1986 , 1138, 20);
-    $simetierre = new Livre("simetierre", 1983 , 374, 15);
-    $leFleau = new Livre("leFleau", 1978 , 823, 14);
-    $Shining = new Livre("Shining", 1977 , 447, 16);
 
