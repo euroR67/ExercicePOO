@@ -1,24 +1,21 @@
 <?php
-
+    // Création de la class Auteurs
     class Auteurs {
         private $nom;
         private $prenom;
-        private $nombreLivres;
-        private $dateDeNaissance;
-        private $lieuDeNaissance;
 
-        public function __construct($nom,$prenom,$nombreLivres,$dateDeNaissance,$lieuDeNaissance) {
+        // Initialisation des propriétés de class la Auteurs avec "__construct";
+        public function __construct($nom,$prenom) {
             $this->nom = $nom;
             $this->prenom = $prenom;
-            $this->nombreLivres = $nombreLivres;
-            $this->dateDeNaissance = $dateDeNaissance;
-            $this->lieuDeNaissance = $lieuDeNaissance;
         }
 
+        // pour accéder au propriétés privées $nom de la classe
         public function getNom() {
             return $this-> nom;
         }
 
+        // pour définir la valeur de la propriétés $nom privées
         public function setNom() {
             $this-> nom = $nom;
         }
@@ -31,34 +28,14 @@
             $this-> prenom = $prenom;
         }
 
-        public function getNombreLivres() {
-            return $this-> nombreLivres;
+        // Obtient une représentation textuelle de l'objet Auteurs
+        public function toString() {
+            return "{$this->nom} {$this->prenom}";
         }
 
-        public function setNombreLivres() {
-            $this-> nombreLivres = $nombreLivres;
-        }
-
-        public function getDateDeNaissance() {
-            return $this-> dateDeNaissance;
-        }
-
-        public function setDateDeNaissance() {
-            $this-> dateDeNaissance = $dateDeNaissance;
-        }
-
-        public function getLieuDeNaissance() {
-            return $this-> lieuDeNaissance;
-        }
-
-        public function setLieuDeNaissance() {
-            $this-> lieuDeNaissance = $lieuDeNaissance;
-        }
-
+        // Pour afficher la biography de l'auteur
         public function biographyAuteur() {
-            echo "A propos de {$this->nom} {$this->prenom} :<br>
-            née le {$this->dateDeNaissance} à {$this->lieuDeNaissance}<br>
-            Nombre de livres réaliser : {$this->nombreLivres}";
-        }
+            echo "<h3>Livres de {$this->toString()} :</h3>";
+        }        
     }
 ?>
