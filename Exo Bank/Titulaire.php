@@ -69,10 +69,14 @@
         
 
         public function afficherTitulaire() {
-            echo "<h3>Information du client</h3> <br>Nom et prénom : ".$this ." <br>  Age : " .$this->getAge() . "<br>Date de naissance: " . $this->date->format('d-m-Y')."<br>";
+            echo "<h3>Information du titulaire</h3> Nom et prénom : ".$this ." <br>
+            Date de naissance: " . $this->date->format('d/m/Y') . 
+            "<br>Ville : {$this->ville}<br>".
+            "Age : " .$this->getAge() ."<br><br>";
             
             foreach ($this->comptes as $comptes) {
-                echo "$comptes<br>";
+                echo "Le solde de votre {$comptes}";
+                echo " est de " . $comptes->getSolde()." ".$comptes->getDevise()."<br>";
             }
         }
     }

@@ -34,7 +34,7 @@
             return $this-> devise;
         }
 
-        public function setDevise(){
+        public function setDevise($devise){
             $this-> devise = $devise;
         }
 
@@ -46,22 +46,28 @@
             return $this->$soldeInitial;
         }
 
-        public function virement(Compte $compte,float $sommes) {
-            $this->soldeInitial -= $sommes;
-            $compte->soldeInitial += $sommes;
+        public function virement(Compte $compte, float $somme) {
+            if ($somme <= $this->soldeInitial) {
+                $this->soldeInitial -= $somme;
+                $compte->soldeInitial += $somme;
+                echo "Virement de {$somme} € effectué depuis le compte {$this->libelle} vers le compte {$compte->getLibelle()}<br>";
+            } else {
+                echo "Le solde du compte {$this->libelle} est insuffisant pour effectuer ce virement.<br>";
+            }
         }
+        
 
         public function crediter($solde) {
-            $this->$soldeInitial += $solde;
-            echo "Le solde de votre {$this->libelle} est crédité de {$this->$solde}<br>";
+            $this->soldeInitial += $solde;
+            echo "Le solde de votre {$this->libelle} est crédité de {$solde} €<br>";
         }
 
         public function debiter($solde) {
-            $this->$soldeInitial -= $solde;
-            echo "Le solde de votre {$this->libelle} est débité de {$this->$solde}<br>";
-        }
-
-        public function infoCompte() {
-            echo "$this <br>";
-        }
+            if ($this->soldeInitial >= $solde) {
+                $this->soldeInitial -= $solde;
+                echo "Le solde de votre {$this->libelle} est débité de {$solde}<br>";
+            } else {
+                echo "Solde insuffisant pour effectuer le débit sur {$this->libelle}<br>";
+            }
+        }        
     }
