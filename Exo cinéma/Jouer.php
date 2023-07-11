@@ -11,6 +11,9 @@
             $this->acteur = $acteur;
             $this->role = $role;
             $this->film = $film;
+            $acteur->setJouer($this);
+            $role->setJouer($this);
+            $film->setJouer($this);
         }
 
         public function getActeur(){
@@ -19,6 +22,7 @@
 
         public function setActeur($acteur){
             $this->acteur = $acteur;
+            $acteur->setJouer($this);
         }
 
         public function getRole(){
@@ -27,6 +31,7 @@
 
         public function setRole($role){
             $this->role = $role;
+            $role->setJouer($this);
         }
 
         public function getFilm(){
@@ -35,6 +40,11 @@
 
         public function setFilm($film){
             $this->film = $film;
+            $film->setJouer($this);
+        }
+
+        public function __toString(){
+            return "$this->role a été incarné par $this->acteur, <br>";
         }
     }
 

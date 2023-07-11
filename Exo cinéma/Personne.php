@@ -7,18 +7,18 @@
         private DateTime $dateNaissance;
 
 
-        public function __construct(string $nom, string $prenom, string $sexe, DateTime $dateNaissance) {
+        public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance) {
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->sexe = $sexe;
-            $this->dateNaissance = $dateNaissance;
+            $this->dateNaissance = new DateTime($dateNaissance);
         }
 
         public function getNom(){
             return $this->nom;
         }
 
-        public function setNom($nom){
+        public function setNom(string $nom){
             $this->nom = $nom;
         }
 
@@ -26,7 +26,7 @@
             return $this->prenom;
         }
 
-        public function setPrenom($prenom){
+        public function setPrenom(string $prenom){
             $this->prenom = $prenom;
         }
 
@@ -34,7 +34,7 @@
             return $this->sexe;
         }
 
-        public function setSexe($sexe){
+        public function setSexe(string $sexe){
             $this->sexe = $sexe;
         }
 
@@ -42,8 +42,8 @@
             return $this->dateNaissance;
         }
 
-        public function setDateNaissance($dateNaissance){
-            $this->dateNaissance = $dateNaissance;
+        public function setDateNaissance(string $dateNaissance){
+            $this->dateNaissance = new DateTime($dateNaissance);
         }
     }
 
