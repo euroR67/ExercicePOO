@@ -1,7 +1,6 @@
 <?php
 
     class Film {
-<<<<<<< HEAD
         private string $titre; // Propriété privée pour stocker le titre du film
         private DateTime $dateFr; // Propriété privée pour stocker la date de sortie du film
         private int $duree; // Propriété privée pour stocker la durée du film en minutes
@@ -9,16 +8,6 @@
         private Genre $genre; // Propriété privée pour stocker l'instance de la classe Genre associée au film
         private Realisateur $realisateur; // Propriété privée pour stocker l'instance de la classe Realisateur associée au film
         private array $jouer = []; // Propriété privée pour stocker les instances de la classe Jouer associées au film
-=======
-        private string $titre;
-        private DateTime $dateFr;
-        private int $duree;
-        private string $synopsis = "Pas obligatoire";
-        private Genre $genre;
-        private Realisateur $realisateur;
-        private array $jouer = [];
-
->>>>>>> a95ba46cf5e2e4b57039e5d15a5e0925293706a6
 
         // Constructeur de la classe Film
         public function __construct(string $titre, string $dateFr, int $duree, Genre $genre, Realisateur $realisateur) {
@@ -27,22 +16,8 @@
             $this->duree = $duree;
             $this->genre = $genre;
             $this->realisateur = $realisateur;
-<<<<<<< HEAD
             $genre->setFilms($this);                // Met l'objet crée dans le tableau jouer de film
-            $realisateur->setRealisation($this);    // Met l'objet crée dans le tableau jouer de realisateur
-=======
-            $genre->setFilms($this); 
-            $realisateur->setRealisation($this);
-        }
-
-        public function getRealisateur(){
-            return $this->realisateur;
-        }
-
-        public function setRealisateur(Realisateur $realisateur){
-            $this->realisateur = $realisateur;
-            $realisateur->setRealisation($this);
->>>>>>> a95ba46cf5e2e4b57039e5d15a5e0925293706a6
+            $realisateur->setRealisation($this);    // Met l'objet crée dans le tableau jouer de realisation
         }
 
         // Méthode pour obtenir l'instance de la classe Realisateur associée au film
@@ -86,7 +61,6 @@
             $this->duree = $duree;
         }
 
-<<<<<<< HEAD
         // Méthode pour ajouter une instance de la classe Jouer associée au film
         public function setJouer(Jouer $jouer) {
             array_push($this->jouer, $jouer);
@@ -122,35 +96,7 @@
         public function casting(){
             echo "Dans le film $this, <br>";
             foreach($this->jouer as $jouer){
-            echo $jouer; // Affiche les instances de la classe Jouer associées au film
-=======
-        public function setJouer(Jouer $jouer) {
-            array_push($this->jouer,$jouer);
-        }
-
-        public function getSynopsis(){
-            return $this->synopsis;
-        }
-        public function setSynopsis(string $synopsis){
-            $this->synopsis=$synopsis;
-        }
-
-        public function getGenre(){
-            return $this->genre;
-        }
-        public function setGenre(Genre $genre){
-            $this->genre=$genre;
-            $genre->setFilms($this);
-        }
-
-        public function __toString(){ 
-            return $this->titre;
-        }
-        public function casting(){
-            echo "dans le film $this, <br>";
-            foreach($this->jouer as $jouer){
-               echo $jouer;
->>>>>>> a95ba46cf5e2e4b57039e5d15a5e0925293706a6
+            echo $jouer;
             }
         }
     }
